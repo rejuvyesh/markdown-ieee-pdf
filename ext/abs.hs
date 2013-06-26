@@ -8,7 +8,7 @@ extractAbs (Pandoc _ bl) = concatMap f bl
         f _ = []
 
 processFile :: String -> String
-processFile = extractAbs . readMarkdown defaultParserState
+processFile = extractAbs . readMarkdown def
 
 main :: IO ()
 main = getArgs >>= mapM readFile >>= mapM_ (putStrLn . processFile)
